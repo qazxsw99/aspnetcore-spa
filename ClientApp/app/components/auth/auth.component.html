@@ -1,0 +1,34 @@
+﻿<div style="height: 40px"></div>
+<div class="row">
+    <div class="col-md-4">
+        <form (ngSubmit)="authenticate()" #authForm="ngForm" class="form-login">
+            <h4>{{ mode }}</h4>
+
+            <input class="form-control chat-input"
+                   type="email"
+                   name="email"
+                   placeholder="email"
+                   required
+                   [(ngModel)]="user.email"
+                   #email="ngModel" />
+            <div class="error" [hidden]="email.valid || email.pristine">email is invalid</div>
+
+            <input class="form-control chat-input"
+                   type="password"
+                   name="password"
+                   placeholder="password"
+                   required
+                   [(ngModel)]="user.password"
+                   #password="ngModel" />
+            <div class="error" [hidden]="password.valid || password.pristine">password is required</div>
+
+            <div class="wrapper">
+                <span class="group-btn">
+                    <button href="#" [disabled]="!authForm.form.valid" class="btn btn-primary btn-md">
+                        Submit <i class="fa fa-sign-in"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
